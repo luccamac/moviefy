@@ -16,7 +16,7 @@ export class MovieSearchService {
   getMovie(name): Observable<any> {
     let query;
     query = '&s=' + name;
-
+    console.log(this.url + query);
     return this.http.get(this.url + query).pipe(map((res: Response) => res.json()));
   }
 }

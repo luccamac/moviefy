@@ -14,13 +14,13 @@ export class SearchComponent implements OnInit {
   searchOnGoing = false;
   searchDone = false;
   resultsArray = [];
-  search = 'Cinderella';
+  search = '';
 
   constructor(private service: MovieSearchService) { }
 
   ngOnInit() {
   }
-
+  
   searchMovie() {
     this.searchOnGoing = true;
     this.searchDone = false;
@@ -28,12 +28,21 @@ export class SearchComponent implements OnInit {
     this.service.getMovie(this.search).subscribe( 
       res => { console.warn(res);
         console.log(res);
-        this.resultsArray = res.Search;
+        this.resultsArray = res.Search.sort((m1, m2) => m1.Year - m2.Year);
         this.searchOnGoing = false;
         this.searchDone = true;
       },
       err => console.log(`Something went wrong: ${err}`)
     );
+  }
+
+  inputKeyUp(event)
+  {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13)
+      this.searchMovie();
   }
 
 }
