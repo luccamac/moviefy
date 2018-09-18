@@ -1,0 +1,26 @@
+<div class="search-name-movie">
+  <input type="text" placeholder="Insira um nome de filme...">
+</div>
+<button class="btn btn-primary"  (click)="searchMovie()">
+  Search
+</button>
+
+<section id="results" class="bg-light">
+  <h1>Results of Search:</h1>
+  <table class="table table-hover center-table">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Year</th>
+          <th scope="col">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let result of resultsArray">
+          <th scope="row">{{result.Title}}</th>
+          <td>{{result.Year}}</td>
+          <td>{{result.Type}}</td>
+        </tr>
+      </tbody>
+    </table>
+</section>
