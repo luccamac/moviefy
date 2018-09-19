@@ -1,11 +1,15 @@
-<div class="search-name-movie">
-  <input type="text" placeholder="Insira um nome de filme..." (keyup)="inputKeyUp($event)" [(ngModel)]="search">
-  <div *ngIf="error.length != 0"><router-outlet> </router-outlet></div>
+<div class="header">
+    Welcome to {{ title }}!
+  <div class="search-name-movie">
+    <input type="text" class="insert-film" placeholder="Insira um nome de filme..." (keyup)="inputKeyUp($event)" [(ngModel)]="search">
+      <div *ngIf="error.length != 0">
+        <router-outlet> </router-outlet>
+      </div>
+  </div>
+  <button class="btn btn-primary" (click)="searchMovie()">
+    Search
+  </button>
 </div>
-<button class="btn btn-primary" (click)="searchMovie()">
-  Search
-</button>
-
 <section id="results" class="bg-light">
   <h1>Results of Search:</h1>
   <table class="table table-hover center-table">

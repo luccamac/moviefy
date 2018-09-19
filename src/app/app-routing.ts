@@ -7,15 +7,12 @@ import { AboutComponent } from './about/about.component';
 const appRoutes: Routes = [
     { 
         path: '**', 
-        component: NotFoundComponent,
-        outlet: 'notFound'
+        component: NotFoundComponent
     },
-    { 
-        path: 'about', 
-        component: AboutComponent
-    },
-    
-    
+    // { 
+    //     path: 'about', 
+    //     component: AboutComponent
+    // },
 ];
 
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes);  // here we are exporting an array of routes with 'forRoot' 

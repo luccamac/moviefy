@@ -20,7 +20,7 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     HttpModule,
     FormsModule,
-    appRouting
+    appRouting,
   ],
   providers: [],
   bootstrap: [AppComponent]
