@@ -1,5 +1,6 @@
 <div class="search-name-movie">
   <input type="text" placeholder="Insira um nome de filme..." (keyup)="inputKeyUp($event)" [(ngModel)]="search">
+  {{error}}
 </div>
 <button class="btn btn-primary"  (click)="searchMovie()">
   Search

@@ -15,6 +15,7 @@ export class SearchComponent implements OnInit {
   searchDone = false;
   resultsArray = [];
   search = '';
+  error = '';
 
   constructor(private service: MovieSearchService) { }
 
@@ -26,13 +27,17 @@ export class SearchComponent implements OnInit {
     this.searchDone = false;
 
     this.service.getMovie(this.search).subscribe( 
-      res => { console.warn(res);
-        console.log(res);
+      res => { 
+        if (!res.Search) {
+          this.error = 'Filme não encontrado.';
+          return;
+        }
+        this.error = '';
         this.resultsArray = res.Search.sort((m1, m2) => m1.Year - m2.Year);
         this.searchOnGoing = false;
         this.searchDone = true;
       },
-      err => console.log(`Something went wrong: ${err}`)
+      err => this.error = 'Erro de conexão.'
     );
   }
 
