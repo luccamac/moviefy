@@ -3,6 +3,11 @@
     width:50%;
 }   
 
-.header {
-    background-color:#778899;
+.insert-film {
+    width:37%;
+}   
+
+.btn-primary {
+    margin-bottom: 10px;
+    margin-top: 10px;
 }

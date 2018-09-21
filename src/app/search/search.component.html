@@ -1,5 +1,4 @@
 <div class="header">
-    Welcome to {{ title }}!
   <div class="search-name-movie">
     <input type="text" class="insert-film" placeholder="Insira um nome de filme..." (keyup)="inputKeyUp($event)" [(ngModel)]="search">
       <div *ngIf="error.length != 0">
@@ -10,8 +9,22 @@
     Search
   </button>
 </div>
+
 <section id="results" class="bg-light">
-  <h1>Results of Search:</h1>
+  <h1>Results of Search: {{actualSearch}}</h1>
+  <table *ngIf="showPageNav()" class="table table-hover center-table">
+      <tr>
+        <td>
+            <button  #previous (click) = "prevPage()" [disabled]="!showPrevButton()">Prev Page</button>
+        </td>
+        <td>
+            {{service.pageIndex}}/{{totalPages}}
+        </td>
+        <td>
+            <button  #next (click) = "nextPage()" [disabled]="!showNextButton()">Next Page</button>
+        </td>
+      </tr>
+    </table>
   <table class="table table-hover center-table">
       <thead>
         <tr>
