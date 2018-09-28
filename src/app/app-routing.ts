@@ -14,7 +14,7 @@ const appRoutes: Routes = [
         path: '', 
         component: SearchComponent,
         pathMatch: 'full'
-    }
+    },
     { 
         path: '**', 
         component: NotFoundComponent
