@@ -7,30 +7,31 @@
         <div *ngIf="error.length != 0">
             <router-outlet> </router-outlet>
           </div>
-        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>close</mat-icon>
-        </button>
     </mat-form-field>
     <br/>
     <button mat-raised-button color="primary" (click)="searchMovie()">Search</button>
   </mat-card-content>
-</mat-card>
 
-<section id="results" class="bg-light">
-  <h1>Results of Search: {{actualSearch}}</h1>
-  <table *ngIf="showPageNav()" class="table table-hover center-table">
+</mat-card>
+<mat-card>
+  <mat-card-title>Results of Search: {{actualSearch}}</mat-card-title>
+  <mat-card-content>
+    <table *ngIf="showPageNav()" class="table table-hover center-table">
       <tr>
         <td>
-            <button  #previous (click) = "prevPage()" [disabled]="!showPrevButton()">Prev Page</button>
+            <button #previous mat-raised-button color="primary" [disabled]="!showPrevButton()"(click)="prevPage()">Prev Page</button>
         </td>
         <td>
             {{service.pageIndex}}/{{totalPages}}
         </td>
         <td>
-            <button  #next (click) = "nextPage()" [disabled]="!showNextButton()">Next Page</button>
+            <button #next mat-raised-button color="primary" [disabled]="!showNextButton()"(click)="nextPage()">Next Page</button>
         </td>
       </tr>
     </table>
+  </mat-card-content>
+</mat-card>
+
   <table class="table table-hover center-table">
       <thead>
         <tr>
@@ -49,4 +50,3 @@
         </tr>
       </tbody>
     </table>
-</section>

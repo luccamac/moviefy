@@ -1,8 +1,16 @@
 .search-movie-field {
-    width: 500px;
+    width: 95%;
 }
 
 mat-card {
-    width: 800px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 10px;
     text-align: center;
+    align-content: center;
+}
+
+mat-card-content {
+    align-content: center;
 }
