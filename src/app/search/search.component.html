@@ -1,14 +1,20 @@
-<div class="header">
-  <div class="search-name-movie">
-    <input type="text" class="insert-film" placeholder="Insira um nome de filme..." (keyup)="inputKeyUp($event)" [(ngModel)]="search">
-      <div *ngIf="error.length != 0">
-        <router-outlet> </router-outlet>
-      </div>
-  </div>
-  <button class="btn btn-primary" (click)="searchMovie()">
-    Search
-  </button>
-</div>
+<mat-card> 
+  <mat-card-title>Welcome to Moviefy!</mat-card-title>
+  <mat-card-subtitle><a routerLink="/about">About Us</a></mat-card-subtitle>
+  <mat-card-content>
+      <mat-form-field class="search-movie-field">
+        <input matInput type="text" placeholder="Insert Movie Name Here" (keyup)="inputKeyUp($event)" [(ngModel)]="search">
+        <div *ngIf="error.length != 0">
+            <router-outlet> </router-outlet>
+          </div>
+        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+    <br/>
+    <button mat-raised-button color="primary" (click)="searchMovie()">Search</button>
+  </mat-card-content>
+</mat-card>
 
 <section id="results" class="bg-light">
   <h1>Results of Search: {{actualSearch}}</h1>
